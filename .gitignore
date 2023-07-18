@@ -1,0 +1,29 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.sqlite
+
+# Flask
+instance/
+.webassets-cache
+
+# Development
+.cache
+.pytest_cache
+.pytest_cache/
+.cache/
+.idea
+.vscode
+*.swp
+*~
+project/settings.py
+.DS_Store
