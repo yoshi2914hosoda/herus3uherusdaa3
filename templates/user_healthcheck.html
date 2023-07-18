@@ -1,0 +1,46 @@
+<!-- 修正後の user_healthcheck.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Health Check</title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% block content %}
+    <h1>User: {{ user.username }}</h1>
+    {% if healthcheck %}
+        <h2>最新のヘルスチェックデータ</h2>
+        <p>身長: {{ healthcheck.height }} cm</p>
+        <p>体重: {{ healthcheck.weight }} kg</p>
+        <p>血圧: {{ healthcheck.blood_pressure_high }} / {{ healthcheck.blood_pressure_low }}</p>
+        <p>血糖値: {{ healthcheck.blood_sugar }} mg/dL</p>
+        <a href="{{ url_for('new_healthcheck') }}">New Health Check</a>
+            <input type="submit" name="menu" value="メニューをおすすめする">
+        </form>
+        {% if menu %}
+            <h2>おすすめメニュー</h2>
+            <p>{{ menu|safe }}</p>
+        {% endif %}
+    {% endif %}
+    <h2>新しいヘルスチェックデータを登録する</h2>
+    <a href="{{ url_for('new_healthcheck') }}">New Health Check</a>
+        <label for="height">身長:</label><br>
+        <input type="number" id="height" name="height" step="0.1" min="0"><br>
+        <label for="weight">体重:</label><br>
+        <input type="number" id="weight" name="weight" step="0.1" min="0"><br>
+        <label for="blood_pressure_high">血圧（最高）:</label><br>
+        <input type="number" id="blood_pressure_high" name="blood_pressure_high" min="0"><br>
+        <label for="blood_pressure_low">血圧（最低）:</label><br>
+        <input type="number" id="blood_pressure_low" name="blood_pressure_low" min="0"><br>
+        <label for="blood_sugar">血糖値:</label><br>
+        <input type="number" id="blood_sugar" name="blood_sugar" step="0.1" min="0"><br>
+        <input type="submit" name="healthcheck" value="登録">
+    </form>
+    <br>
+    <form method="POST" action="/logout">
+        <input type="submit" value="ログアウト">
+    </form>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <h2>New Health Check for {{ user.username }}</h2>
+  <form method="POST">
+    <label for="height">Height:</label><br>
+    <input type="text" id="height" name="height"><br>
+    <label for="weight">Weight:</label><br>
+    <input type="text" id="weight" name="weight"><br>
+    <label for="blood_pressure_high">Blood Pressure High:</label><br>
+    <input type="text" id="blood_pressure_high" name="blood_pressure_high"><br>
+    <label for="blood_pressure_low">Blood Pressure Low:</label><br>
+    <input type="text" id="blood_pressure_low" name="blood_pressure_low"><br>
+    <label for="blood_sugar">Blood Sugar:</label><br>
+    <input type="text" id="blood_sugar" name="blood_sugar"><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+{% endblock %}

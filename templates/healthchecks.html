@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Checks</title>
+</head>
+<body>
+    <h1>Health Checks</h1>
+    <ul>
+        {% for healthcheck in healthchecks %}
+        <li>{{ healthcheck.user_id }}: {{ healthcheck.height }} cm, {{ healthcheck.weight }} kg, blood pressure: {{ healthcheck.blood_pressure_high }}/{{ healthcheck.blood_pressure_low }}, blood sugar: {{ healthcheck.blood_sugar }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
